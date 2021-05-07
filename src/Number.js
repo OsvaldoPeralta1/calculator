@@ -34,6 +34,15 @@ class Number extends Component {
     this.setState({ theNumber: 0 });
   }
   render() {
+    const number = this.state.theNumber;
+    let button;
+    if (number !== 0) {
+      button = (
+        <button className="btn-dark rounded mr-2" onClick={this.Reset}>
+          Reset
+        </button>
+      );
+    }
     return (
       <div className="flex-row my-5">
         <div className="col-sm d-flex justify-content-center">
@@ -46,9 +55,10 @@ class Number extends Component {
           <button className="btn-dark rounded mr-2" onClick={this.Divide}>
             Divide
           </button>
-          <button className="btn-dark rounded mr-2" onClick={this.Reset}>
+          {/* <button className="btn-dark rounded mr-2" onClick={this.Reset}>
             Reset
-          </button>
+          </button> */}
+          {button}
         </div>
         <div className="col-sm mt-4 flex-row d-flex justify-content-center align-self-center">
           <h2>{this.state.theNumber}</h2>
